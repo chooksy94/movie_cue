@@ -9,6 +9,6 @@ const Onboarding =() => {
     )
 }
 
-export default Onboarding
+export default Onboarding;
 
 const styles = StyleSheet.create({})

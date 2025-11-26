@@ -7,6 +7,7 @@ export default function Index() {
       <View className="flex-1 justify-center items-center">
       <Text className="text-4xl text-dark-200 font-bold"> Welcome! </Text>
           <Link href="/onboarding">Onboarding </Link>
+          <Link href="/movie/avengers">Avengers Movie </Link>
     </View>
   );
 }
