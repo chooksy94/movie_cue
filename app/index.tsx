@@ -8,7 +8,7 @@ export default function Index() {
       <Text className="text-4xl text-dark-200 font-bold"> Welcome! </Text>
           <Link href="/onboarding">Onboarding </Link>
           <Link href="/movie/avengers">Avengers Movie </Link>
-          <Link href="/movie/superman">Superman Movie </Link>
+
     </View>
   );
 }
