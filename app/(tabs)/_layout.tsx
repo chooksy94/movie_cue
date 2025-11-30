@@ -20,6 +20,14 @@ const _Layout = () => {
                     headerShown: false
                 }}
             />
+
+            <Tabs.Screen
+                name="saved"
+                options={{
+                    title: 'Saved',
+                    headerShown: false
+                }}
+            />
         </Tabs>
     )
 }
