@@ -2,15 +2,15 @@ import React from 'react'
 import {Tabs} from "expo-router";
 
 
-const _Layout = () => {
+const _TabLayout = () => {
     return (
         <Tabs>
             <Tabs.Screen
-            name="index"
-            options={{
-                title: 'Home',
-                headerShown: false
-            }}
+                name="index"
+                options={{
+                    title: 'Home',
+                    headerShown: false
+                }}
             />
 
             <Tabs.Screen
@@ -40,4 +40,4 @@ const _Layout = () => {
     )
 }
 
-export default _Layout
+export default _TabLayout
