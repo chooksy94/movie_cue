@@ -5,7 +5,7 @@ import {Image, ImageBackground, Text} from "react-native";
 import {icons} from "@/constants/icons";
 
 
-
+/* The root tab screen will be modified in the tabs created below*/
 const _TabLayout = () => {
     return (
         <Tabs screenOptions={{ headerShown: false }}>
