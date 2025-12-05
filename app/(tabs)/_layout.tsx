@@ -6,6 +6,7 @@ import {icons} from "@/constants/icons";
 
 /*Creating a prop to pass down similar modification components from the parent function down to each root Tabs Icon */
 const TabIcon = ({ focused, icon, title }: any) => {
+    if (focused) {
     return (
         <ImageBackground
             source={images.highlight}
@@ -16,11 +17,10 @@ const TabIcon = ({ focused, icon, title }: any) => {
                 tintColor="#151312"
                 className="size-5"
             />
-            <Text className="text-secondary text-base font-semibold ml-2">
-                {title}
-            </Text>
-        </ImageBackground>
-    );
+                <Text className="text-secondary text-base font-semibold ml-2"> {title}</Text>
+            </ImageBackground>
+        )
+    }
 };
 
 
