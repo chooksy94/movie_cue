@@ -1,7 +1,7 @@
 import React from 'react'
 import {Tabs} from "expo-router";
 import {images} from "@/constants/images";
-import {Image, ImageBackground, Text} from "react-native";
+import {Image, ImageBackground, Text, View} from "react-native";
 import {icons} from "@/constants/icons";
 
 /*Creating a prop to pass down similar modification components from the parent function down to each root Tabs Icon */
@@ -21,6 +21,12 @@ const TabIcon = ({ focused, icon, title }: any) => {
             </ImageBackground>
         )
     }
+
+    return (
+        <View className="size-full justify-center item-center mt-4 rounded-full ">
+            <Image source={icon} tintColor="AB8B5DB" className="size-5"/>
+        </View>
+    )
 };
 
 
