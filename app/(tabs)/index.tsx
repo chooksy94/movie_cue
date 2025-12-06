@@ -11,7 +11,7 @@ export default function Index() {
           <ScrollView className="flex-1 px-5"
                       showsVerticalScrollIndicator={false} contentContainerStyle={{
                           minHeight: "100%", paddingBottom: 10}}>
-              <Image source={icons.logo} className="absolute w-12 h-10 mt-20 mb-5 mx-auto" />
+              <Image source={icons.logo} className=" w-16 h-16 mt-20 mb-5 mx-auto" />
 
           </ScrollView>
 
