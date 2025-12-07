@@ -13,6 +13,10 @@ export default function Index() {
                           minHeight: "100%", paddingBottom: 10}}>
               <Image source={icons.logo} className=" w-16 h-16 mt-20 mb-5 mx-auto" />
 
+              <View className="flex-1 mt-5">
+                  <SearchBar />
+              </View>
+
           </ScrollView>
 
       </View>
