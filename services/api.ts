@@ -8,10 +8,24 @@ export const TMDB_CONFIG = {
     }
 }
 
+//fetching the request details
 
 export const fetchMovies = async ({ query } : { query: string}) => {
-        const endpoint = '/discover/movie?sort_by=popularity.desc';
+    const endpoint = '/discover/movie?sort_by=popularity.desc';
+
+//handling the response
+    const response = await fetch(endpoint, {
+        method: 'GET',
+        headers: TMDB_CONFIG.headers,
+    });
+
+    if (!response.ok) {
+        //@ts-ignore
+        throw new Error('Failed to fetch movies', response.statusText);
+    }
 }
+
+
 
 // const url = 'https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc';
 // const options = {
