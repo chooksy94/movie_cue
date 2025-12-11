@@ -11,7 +11,10 @@ export const TMDB_CONFIG = {
 //fetching the request details
 
 export const fetchMovies = async ({ query } : { query: string}) => {
-    const endpoint = '/discover/movie?sort_by=popularity.desc';
+    //displaying search result in the search screen when queried in the searchbar
+    const endpoint = query
+    ? 'search/movie?query=${encodeURIComponent(query)}'
+    :'/discover/movie?sort_by=popularity.desc';
 
 //handling the response
     const response = await fetch(endpoint, {
@@ -23,6 +26,11 @@ export const fetchMovies = async ({ query } : { query: string}) => {
         //@ts-ignore
         throw new Error('Failed to fetch movies', response.statusText);
     }
+
+    //extracting data from the response
+    const data = await response.json();
+
+    return data.results;
 }
 
 
