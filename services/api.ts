@@ -13,7 +13,7 @@ export const TMDB_CONFIG = {
 export const fetchMovies = async ({ query } : { query: string}) => {
     //displaying search result in the search screen when queried in the searchbar
     const endpoint = query
-    ? 'search/movie?query=${encodeURIComponent(query)}'
+    ? ${TMDB_CONFIG.BASE_URL}'search/movie?query=${encodeURIComponent(query)}'
     :'/discover/movie?sort_by=popularity.desc';
 
 //handling the response
