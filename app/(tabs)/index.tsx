@@ -1,4 +1,4 @@
-import { Image, ScrollView, View } from "react-native";
+import {ActivityIndicator, Text, Image, ScrollView, View} from "react-native";
 import {images} from "@/constants/images";
 import {icons} from "@/constants/icons";
 import SearchBar from "@/components/SearchBar";
@@ -23,6 +23,23 @@ export default function Index() {
                       showsVerticalScrollIndicator={false} contentContainerStyle={{
                           minHeight: "100%", paddingBottom: 10}}>
               <Image source={icons.logo} className=" w-16 h-16 mt-20 mb-5 mx-auto" />
+
+              {moviesLoading ? (
+                  <ActivityIndicator
+                    size = "large"
+                    color="#0000ff"
+                    className= "mt-10 self-center"
+                  />
+              ): moviesError ? (
+                  <Text>Error: {moviesError ?.message}</Text>
+              ) : (
+                  <View className="flex-1 mt-5">
+                      <SearchBar
+                          onPress={() => router.push("//search")}
+                          placeholder="Search for a movie "
+                      />
+                  </View>
+              )}
 
               <View className="flex-1 mt-5">
                   <SearchBar
