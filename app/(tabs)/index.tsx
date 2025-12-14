@@ -3,10 +3,15 @@ import {images} from "@/constants/images";
 import {icons} from "@/constants/icons";
 import SearchBar from "@/components/SearchBar";
 import { useRouter} from "expo-router";
+import {fetchMovies} from '@/services/api';
 
 export default function Index() {
 
     const router = useRouter();
+
+    const { data : movies } = useFetch(() => fetchMovies({
+        query: ''}
+    ))
   return (
 
       <View className="flex-1 bg-primary">
