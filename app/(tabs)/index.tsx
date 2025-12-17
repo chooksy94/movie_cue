@@ -6,6 +6,8 @@ import { useRouter} from "expo-router";
 import {fetchMovies} from '@/services/api';
 import useFetch from '@/services/useFetch';
 
+//Every display on the mobile app screen will be modified from this folder
+
 export default function Index() {
 
     const router = useRouter();
