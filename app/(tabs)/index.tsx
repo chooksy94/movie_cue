@@ -8,7 +8,7 @@ import {fetchMovies} from '@/services/api';
 export default function Index() {
 
     const router = useRouter();
-
+// fetching movie data
     const { data : movies,
             loading : moviesLoading,
     error : moviesError } = useFetch(() => fetchMovies({
@@ -40,7 +40,7 @@ export default function Index() {
                       />
 
                       <>
-                        <Text className="text-lg text-white font-bold mt-5 mb-3"> Latest Movies </Text>
+                        <Text className="text-lg text-white font-bold mt-5 mb-3"> New Movies </Text>
                       </>
                   </View>
               )}
