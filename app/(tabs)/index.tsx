@@ -4,6 +4,7 @@ import {icons} from "@/constants/icons";
 import SearchBar from "@/components/SearchBar";
 import { useRouter} from "expo-router";
 import {fetchMovies} from '@/services/api';
+import {useFetch} from '@/services/useFetch';
 
 export default function Index() {
 
