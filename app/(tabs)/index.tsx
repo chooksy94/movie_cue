@@ -48,8 +48,11 @@ export default function Index() {
                           <FlatList
                               data={movies}
                               renderItem={({item}) => (
-                                  <Text>{item.title}</Text>
+                                  <Text className="text-white text-sm">{item.title}</Text>
                               )}
+
+                              keyExtractor={(item) => item.id .toString()}
+                              numColumns={3}
                           />
                       </>
                   </View>
