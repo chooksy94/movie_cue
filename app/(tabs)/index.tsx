@@ -1,4 +1,4 @@
-import {ActivityIndicator, Text, Image, ScrollView, View} from "react-native";
+import {ActivityIndicator, Text, Image, ScrollView, View, FlatList} from "react-native";
 import {images} from "@/constants/images";
 import {icons} from "@/constants/icons";
 import SearchBar from "@/components/SearchBar";
@@ -44,6 +44,13 @@ export default function Index() {
 
                       <>
                         <Text className="text-lg text-white font-bold mt-5 mb-3"> Latest Movies </Text>
+
+                          <FlatList
+                              data={movies}
+                              renderItem={({item}) => (
+                                  <Text>{item.title}</Text>
+                              )}
+                          />
                       </>
                   </View>
               )}
