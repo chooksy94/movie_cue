@@ -22,6 +22,10 @@ const MovieCard = ({ id, poster_path, title, vote_average,  release_date }: Movi
                     <Image src={icons.star} className="size-4" />
                     <Text className="text-xs text-white font-bold uppercase">{Math.round(vote_average / 2)}</Text>
                 </View>
+
+                <View>
+                    <Text className="text-xs text-light-300 font-medium mt-1"> {release_date?.split('-')[0]}</Text>
+                </View>
             </TouchableOpacity>
         </Link>
     )
