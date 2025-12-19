@@ -5,9 +5,9 @@ import {Image} from "react-native";
 
 const MovieCard = ({ id, poster_path, title, vote_average,  release_date }: Movie ) => {
     return (
-        <Link href={`/movie/${id}`} asChild>
-        <TouchableOpacity className="w-[30%}">
-            <Image
+        <Link href={`/movies/${id}`} asChild>
+            <TouchableOpacity className="w-[30%}">
+                <Image
                 source={{
                     uri: poster_path
                         ? `https://image.tmdb.org/t/p/w500${poster_path}`
@@ -15,8 +15,10 @@ const MovieCard = ({ id, poster_path, title, vote_average,  release_date }: Movi
                 }}
                 className="w-full h-52 rounded-lg"
                 resizeMode="cover"
-            />
-        </TouchableOpacity>
+             />
+
+                <Text className="text-sm font-bold text-white mt-2">{title}</Text>
+            </TouchableOpacity>
         </Link>
     )
 }
