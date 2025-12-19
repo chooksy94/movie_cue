@@ -5,6 +5,7 @@ import SearchBar from "@/components/SearchBar";
 import { useRouter} from "expo-router";
 import {fetchMovies} from '@/services/api';
 import useFetch from '@/services/useFetch';
+import MovieCard from "@/components/MovieCard";
 
 //Every display on the mobile app screen will be modified from this folder
 
@@ -48,7 +49,10 @@ export default function Index() {
                           <FlatList
                               data={movies}
                               renderItem={({item}) => (
-                                  <Text className="text-white text-sm">{item.title}</Text>
+                                  <MovieCard
+                                      {... item}
+
+                                  />
                               )}
 
                               keyExtractor={(item) => item.id .toString()}
