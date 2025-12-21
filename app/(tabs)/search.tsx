@@ -6,16 +6,18 @@ import MovieCard from "@/components/MovieCard";
 import {icons} from "@/constants/icons";
 import SearchBar from "@/components/SearchBar";
 import {error} from "@expo/fingerprint/cli/build/utils/log";
+import {useState} from "react";
 
 const Search = () => {
+    const [searchQuery, setSearchQuery] = useState('');
 
 // fetching movie data
     const { data : movies,
         loading,
         error
     } = useFetch(() => fetchMovies({
-        query: ''
-    }))
+        query: searchQuery
+    }), false )
     return (
  //styling the background of search screen
         <View className="flex-1 bg-primary">
@@ -43,7 +45,11 @@ const Search = () => {
                         </View>
 
                         <View className="my-5">
-                            <SearchBar placeholder="Search movies..." />
+                            <SearchBar
+                                placeholder="Search movies..."
+                                value={searchQuery}
+                                onChangeText={(text: string) => setSearchQuery(text)}
+                            />
                         </View>
 
                         {loading && (
@@ -56,10 +62,10 @@ const Search = () => {
                             </Text>
                         )}
 
-                        {! loading && !error && 'SEARCH TERM'.trim() && movies?.length > 0 && (
+                        {! loading && !error && searchQuery.trim() && movies?.length > 0 && (
                             <Text className="text-xl font-bold text-white">
                                 Search Results for {''}
-                                <Text className="text-accent">Search Term</Text>
+                                <Text className="text-accent">{searchQuery}</Text>
                             </Text>
                         ) }
 
