@@ -1,16 +1,20 @@
 import { images } from "@/constants/images"
-import {View, Text, Image, FlatList} from "react-native"
+import {View, Text, Image, FlatList, ActivityIndicator} from "react-native"
 import {useRouter} from "expo-router";
 import useFetch from "@/services/useFetch";
 import {fetchMovies} from "@/services/api";
 import MovieCard from "@/components/MovieCard";
+import {icons} from "@/constants/icons";
+import SearchBar from "@/components/SearchBar";
+import {error} from "@expo/fingerprint/cli/build/utils/log";
 
 const Search = () => {
     const router = useRouter();
 // fetching movie data
     const { data : movies,
-        loading : moviesLoading,
-        error : moviesError } = useFetch(() => fetchMovies({
+        loading,
+        error
+    } = useFetch(() => fetchMovies({
         query: ''
     }))
     return (
@@ -31,6 +35,38 @@ const Search = () => {
                 }}
 
                 contentContainerStyle={{paddingBottom: 100}}
+
+ //Displaying searchbar icon on the top without the ScrollView function
+                ListHeaderComponent={
+                    <>
+                        <View className="w-full flex-row justify-center mt-20 items-center">
+                            <Image source={icons.logo} className="w-12 h-10" />
+                        </View>
+
+                        <View className="my-5">
+                            <SearchBar placeholder="Search movies..." />
+                        </View>
+
+                        {loading && (
+                            <ActivityIndicator size="large" color="#0000ff" className="my-3 "/>
+                        )}
+
+                        {error && (
+                            <Text className="text-red-500 px-5 my-3">
+                                Error: {error.message}
+                            </Text>
+                        )}
+
+                        {/*{! loading && !error && 'SEARCH TERM'.trim() && movies?.length > 0 && (*/}
+                        {/*    <Text className="text-xl font-bold text-white">*/}
+                        {/*        Search Results for {''}*/}
+                        {/*        <Text className="text-accent">Search Term</Text>*/}
+                        {/*    </Text>*/}
+                        {/*) }*/}
+
+                    </>
+                }
+
             />
         </View>
     )
