@@ -1,6 +1,5 @@
 import { images } from "@/constants/images"
 import {View, Text, Image, FlatList, ActivityIndicator} from "react-native"
-import {useRouter} from "expo-router";
 import useFetch from "@/services/useFetch";
 import {fetchMovies} from "@/services/api";
 import MovieCard from "@/components/MovieCard";
@@ -9,7 +8,7 @@ import SearchBar from "@/components/SearchBar";
 import {error} from "@expo/fingerprint/cli/build/utils/log";
 
 const Search = () => {
-    const router = useRouter();
+
 // fetching movie data
     const { data : movies,
         loading,
