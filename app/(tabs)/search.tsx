@@ -57,12 +57,12 @@ const Search = () => {
                             </Text>
                         )}
 
-                        {/*{! loading && !error && 'SEARCH TERM'.trim() && movies?.length > 0 && (*/}
-                        {/*    <Text className="text-xl font-bold text-white">*/}
-                        {/*        Search Results for {''}*/}
-                        {/*        <Text className="text-accent">Search Term</Text>*/}
-                        {/*    </Text>*/}
-                        {/*) }*/}
+                        {! loading && !error && 'SEARCH TERM'.trim() && movies?.length > 0 && (
+                            <Text className="text-xl font-bold text-white">
+                                Search Results for {''}
+                                <Text className="text-accent">Search Term</Text>
+                            </Text>
+                        ) }
 
                     </>
                 }
