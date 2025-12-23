@@ -6,7 +6,7 @@ import MovieCard from "@/components/MovieCard";
 import {icons} from "@/constants/icons";
 import SearchBar from "@/components/SearchBar";
 import {error} from "@expo/fingerprint/cli/build/utils/log";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 const Search = () => {
     const [searchQuery, setSearchQuery] = useState('');
@@ -14,10 +14,25 @@ const Search = () => {
 // fetching movie data
     const { data : movies,
         loading,
-        error
+        error,
+        refetch: loadMovies,
+        reset,
     } = useFetch(() => fetchMovies({
         query: searchQuery
     }), false )
+
+    useEffect(() =>{
+        const func = async () => {
+            if (searchQuery.trim()) {
+                await loadMovies();
+            } else {
+                reset()
+            }
+        }
+
+        func();
+    }, [searchQuery]);
+
     return (
  //styling the background of search screen
         <View className="flex-1 bg-primary">
