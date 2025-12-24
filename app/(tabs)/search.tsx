@@ -5,7 +5,6 @@ import {fetchMovies} from "@/services/api";
 import MovieCard from "@/components/MovieCard";
 import {icons} from "@/constants/icons";
 import SearchBar from "@/components/SearchBar";
-import {error} from "@expo/fingerprint/cli/build/utils/log";
 import {useEffect, useState} from "react";
 
 const Search = () => {
