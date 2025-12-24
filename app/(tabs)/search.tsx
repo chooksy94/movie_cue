@@ -30,7 +30,7 @@ const Search = () => {
         }, 500);
         return () => clearTimeout(timeoutId);
 
-    }, [searchQuery]);
+    }, [loadMovies, reset, searchQuery]);
 
     return (
  //styling the background of search screen
