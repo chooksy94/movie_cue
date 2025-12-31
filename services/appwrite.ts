@@ -2,7 +2,7 @@
 
 import {Client, Databases, Query} from "react-native-appwrite";
 
-const DATABBASE_ID= process.env.EXPO_PUBLIC_APPWRITE_DATABBASE_ID!;
+const DATABASE_ID= process.env.EXPO_PUBLIC_APPWRITE_DATABBASE_ID!;
 const COLLECTION_ID= process.env.EXPO_PUBLIC_APPWRITE_COLLECTION_ID!;
 
 const client = new Client()
@@ -11,7 +11,11 @@ const client = new Client()
 
 const database = new Databases(client)
 export const updateSearchCount = async (query : string, movie: Movie  ) => {
-    const result = await database.listDocuments(DATABBASE_ID, COLLECTION_ID, [
+    try{
+
+    }
+
+    const result = await database.listDocuments(DATABASE_ID, COLLECTION_ID, [
         Query.equal('searchTerm', query)
     ])
 
@@ -19,15 +23,16 @@ export const updateSearchCount = async (query : string, movie: Movie  ) => {
         const existingMovie = result.documents[0];
 
         await database.updateDocument(
-            DATABBASE_ID,
+            DATABASE_ID,
             COLLECTION_ID,
             existingMovie.$id,
             {
                 count: existingMovie.count + 1
             }
         )
-    } else {
-        await database.createDocument(DATABBASE_ID, COLLECTION_ID, ID.unique(), {
+    }
+    else {
+        await database.createDocument(DATABASE_ID, COLLECTION_ID, ID.unique(), {
              searchTerm: query,
             movie_id: movie.id,
             count: 1,
